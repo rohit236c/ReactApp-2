@@ -7,11 +7,12 @@ import Loader from './loader'
 class App extends React.Component
 {
     constructor(props){
-        super(props)
+        super(props) // calling constructor function of parent class..
+        
         //this is the only time we do direct assignment...
-        this.state = {lat:null , errmsg : ''};
+        this.state = {lat:null , errmsg : ''}; //initialisng the state..
 
-
+        //getting geolocation 
         window.navigator.geolocation.getCurrentPosition(
             (position)=> {
                 this.setState({lat : position.coords.latitude}) 
@@ -25,8 +26,7 @@ class App extends React.Component
     
     //dont add much info since this function runs many times
     
-    render(){
-       
+    render(){       
          
               if(!this.state.lat && this.state.errmsg){
                 return  <div>error : {this.state.errmsg}</div>
